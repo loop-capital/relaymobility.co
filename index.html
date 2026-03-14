@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RELAY Mobility | The Autonomous Fleet Network</title>
+    <meta name="description" content="Half the cost of Uber. Zero drivers. Autonomous ride-sharing via rental fleet partnerships. Launching Phoenix 2026.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --secondary: #0ea5e9;
+            --dark: #0f172a;
+            --gray: #64748b;
+            --light: #f8fafc;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; line-height: 1.6; color: var(--dark); }
+        nav { position: fixed; top: 0; width: 100%; padding: 1rem 2rem; background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); border-bottom: 1px solid #e2e8f0; z-index: 1000; }
+        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.5rem; font-weight: 800; color: var(--primary); text-decoration: none; }
+        .hero { padding: 8rem 2rem 4rem; background: linear-gradient(135deg, var(--dark) 0%, #1e293b 100%); color: white; text-align: center; }
+        .hero h1 { font-size: 3.5rem; font-weight: 800; margin-bottom: 1rem; }
+        .hero-subtitle { font-size: 1.5rem; color: #94a3b8; margin-bottom: 1rem; }
+        .hero-description { font-size: 1.125rem; color: #64748b; max-width: 600px; margin: 0 auto 2rem; }
+        .btn { padding: 1rem 2rem; border-radius: 8px; font-weight: 600; text-decoration: none; display: inline-block; }
+        .btn-primary { background: linear-gradient(135deg, #2563eb, #0ea5e9); color: white; }
+        .stats { padding: 3rem; background: #f8fafc; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; text-align: center; }
+        .stat-value { font-size: 2.5rem; font-weight: 800; color: #2563eb; }
+        .stat-label { color: #64748b; font-size: 0.875rem; }
+        .section { padding: 5rem 2rem; }
+        .section-container { max-width: 1200px; margin: 0 auto; }
+        .section-header { text-align: center; margin-bottom: 4rem; }
+        .section-header h2 { font-size: 2.5rem; font-weight: 800; margin-bottom: 1rem; }
+        .section-header p { color: #64748b; font-size: 1.125rem; }
+        .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+        .feature { padding: 2rem; border: 1px solid #e2e8f0; border-radius: 12px; }
+        .feature h3 { font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem; }
+        .feature p { color: #64748b; }
+        .waitlist { background: #0f172a; color: white; padding: 5rem 2rem; text-align: center; }
+        .waitlist h2 { font-size: 2.5rem; margin-bottom: 1rem; }
+        .waitlist p { color: #94a3b8; margin-bottom: 2rem; }
+        .waitlist-form { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; max-width: 500px; margin: 0 auto; }
+        .waitlist-form input { padding: 1rem; border-radius: 8px; border: 1px solid #334155; background: #1e293b; color: white; flex: 1; min-width: 250px; }
+        .footer { padding: 3rem 2rem; text-align: center; border-top: 1px solid #e2e8f0; color: #64748b; }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="logo">RELAY Mobility</a>
+        </div>
+    </nav>
+    <section class="hero">
+        <h1>The Autonomous Fleet Network</h1>
+        <p class="hero-subtitle">Half the cost of Uber. Zero drivers.</p>
+        <p class="hero-description">Connecting idle rental car fleets to autonomous ride-share demand. Launching Phoenix 2026.</p>
+        <a href="#waitlist" class="btn btn-primary">Join the Waitlist</a>
+    </section>
+    <section class="stats">
+        <div>
+            <div class="stat-value">50%</div>
+            <div class="stat-label">Cost Savings vs Uber</div>
+        </div>
+        <div>
+            <div class="stat-value">70%</div>
+            <div class="stat-label">Fleet Utilization Increase</div>
+        </div>
+        <div>
+            <div class="stat-value">2026</div>
+            <div class="stat-label">Phoenix Launch</div>
+        </div>
+    </section>
+    <section class="section">
+        <div class="section-container">
+            <div class="section-header">
+                <h2>The Future of Mobility</h2>
+                <p>Rental cars sit idle 70% of the time. Meanwhile, Uber costs $30-40 per ride. RELAY bridges the gap.</p>
+            </div>
+            <div class="features">
+                <div class="feature">
+                    <h3>Asset-Light Model</h3>
+                    <p>We don't buy cars. We activate existing rental fleets via partnership—turning depreciation into revenue.</p>
+                </div>
+                <div class="feature">
+                    <h3>Half the Cost</h3>
+                    <p>No drivers to pay means rides cost 50% less. Same vehicle, same safety, better economics.</p>
+                </div>
+                <div class="feature">
+                    <h3>Autonomous Ready</h3>
+                    <p>Built for Waymo, Zoox, and Tesla Robotaxi. Phoenix is our launch city—AV-friendly regulations.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="waitlist" id="waitlist">
+        <h2>Be First to Ride</h2>
+        <p>Join the waitlist for our Phoenix pilot launch.</p>
+        <form class="waitlist-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+            <input type="email" name="email" placeholder="Enter your email" required>
+            <button type="submit" class="btn btn-primary">Join Waitlist</button>
+        </form>
+    </section>
+    <footer class="footer">
+        <p>&copy; 2026 RELAY Mobility. Phoenix, AZ.</p>
+    </footer>
+</body>
+</html>
