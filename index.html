@@ -15,10 +15,10 @@
             color: var(--dark); 
         }
 
-        /* 1. The Banner Container - Adjusted for the 300px logo */
+        /* 1. The Banner Container - Increased height for the larger logo */
         .main-banner { 
             width: 100%; 
-            height: 550px; 
+            height: 500px; 
             background: linear-gradient(rgba(15, 23, 42, 0.4), rgba(15, 23, 42, 0.4)), 
                         url('https://raw.githubusercontent.com/loop-capital/relaymobility-landing/main/Relay%20Banner.jpg');
             background-size: cover;
@@ -28,17 +28,18 @@
             justify-content: center;
         }
 
-        /* 2. The Logo - Increased to 300px */
+        /* 2. The Logo - Size doubled to 240px */
         .centered-logo { 
-            height: 300px; 
-            width: 300px; 
-            border-radius: 32px; /* Smoother corner for the larger size */
+            height: 240px; 
+            width: 240px; 
+            border-radius: 24px; /* Slightly larger radius to match scale */
             object-fit: cover;
-            box-shadow: 0 20px 45px rgba(0,0,0,0.45);
-            border: 5px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+            border: 4px solid rgba(255, 255, 255, 0.15);
             display: block;
         }
         
+        /* 3. Hero Section */
         .hero { 
             padding: 6rem 2rem; 
             background: linear-gradient(135deg, var(--dark) 0%, #1e293b 100%); 
