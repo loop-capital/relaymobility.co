@@ -9,85 +9,110 @@
     <style>
         :root { --primary: #2563eb; --secondary: #0ea5e9; --accent: #8b5cf6; --dark: #0f172a; --gray: #64748b; --light: #f8fafc; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; line-height: 1.6; color: var(--dark); }
         
-        .banner { width: 100%; height: 300px; background: linear-gradient(135deg, var(--dark) 0%, #1e293b 100%); display: flex; align-items: center; justify-content: center; overflow: hidden; }
+        body { 
+            font-family: 'Inter', sans-serif; 
+            line-height: 1.6; 
+            color: var(--dark); 
+            padding-top: 70px; /* Offset for fixed nav */
+        }
+        
+        /* Fixed Navigation */
+        nav { 
+            position: fixed; 
+            top: 0; 
+            width: 100%; 
+            height: 70px;
+            padding: 0 2rem; 
+            background: rgba(255,255,255,0.95); 
+            backdrop-filter: blur(10px); 
+            border-bottom: 1px solid #e2e8f0; 
+            z-index: 1000; 
+            display: flex;
+            align-items: center;
+        }
+        .nav-container { width: 100%; max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .logo { display: flex; align-items: center; gap: 0.8rem; font-size: 1.5rem; font-weight: 800; color: var(--primary); text-decoration: none; }
+        .logo img { height: 40px; width: 40px; border-radius: 8px; object-fit: cover; }
+
+        /* Banner & Hero */
+        .banner { width: 100%; height: 300px; background: var(--dark); overflow: hidden; }
         .banner img { width: 100%; height: 100%; object-fit: cover; opacity: 0.8; }
         
-        nav { position: fixed; top: 0; width: 100%; padding: 1rem 2rem; background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); border-bottom: 1px solid #e2e8f0; z-index: 1000; }
-        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
-        .logo { display: flex; align-items: center; gap: 0.5rem; font-size: 1.5rem; font-weight: 800; color: var(--primary); text-decoration: none; }
-        .logo img { height: 40px; width: 40px; border-radius: 8px; object-fit: cover; }
-        
-        .hero { padding: 4rem 2rem; background: linear-gradient(135deg, var(--dark) 0%, #1e293b 100%); color: white; text-align: center; }
-        .hero h1 { font-size: 3.5rem; font-weight: 800; margin-bottom: 1rem; }
-        .hero-subtitle { font-size: 1.5rem; color: #94a3b8; margin-bottom: 1rem; }
-        .hero-description { font-size: 1.125rem; color: #64748b; max-width: 600px; margin: 0 auto 2rem; }
-        
-        .btn { padding: 1rem 2rem; border-radius: 8px; font-weight: 600; text-decoration: none; display: inline-block; transition: all 0.2s; }
+        .hero { padding: 6rem 2rem; background: linear-gradient(135deg, var(--dark) 0%, #1e293b 100%); color: white; text-align: center; }
+        .hero h1 { font-size: 3.5rem; font-weight: 800; margin-bottom: 1.5rem; line-height: 1.1; }
+        .hero p { color: #94a3b8; font-size: 1.125rem; }
+
+        /* Buttons */
+        .btn { padding: 1rem 2.5rem; border-radius: 8px; font-weight: 600; text-decoration: none; display: inline-block; transition: all 0.2s; border: none; cursor: pointer; }
         .btn-primary { background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; }
         .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(37,99,235,0.3); }
-        
-        .stats { padding: 3rem; background: var(--light); display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; text-align: center; }
-        .stat-value { font-size: 2.5rem; font-weight: 800; color: var(--primary); }
-        .stat-label { color: var(--gray); font-size: 0.875rem; }
-        
+
+        /* Stats Section */
+        .stats { padding: 4rem 2rem; background: var(--light); display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; text-align: center; }
+        .stat-value { font-size: 2.5rem; font-weight: 800; color: var(--primary); display: block; }
+        .stat-label { color: var(--gray); font-size: 0.875rem; text-transform: uppercase; font-weight: 600; }
+
+        /* General Sections */
         .section { padding: 5rem 2rem; }
         .section-container { max-width: 1200px; margin: 0 auto; }
         .section-header { text-align: center; margin-bottom: 4rem; }
         .section-header h2 { font-size: 2.5rem; font-weight: 800; margin-bottom: 1rem; }
         .section-header p { color: var(--gray); font-size: 1.125rem; }
-        .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
-        .feature { padding: 2rem; border: 1px solid #e2e8f0; border-radius: 12px; }
-        .feature h3 { font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem; }
-        .feature p { color: var(--gray); }
         
-        .waitlist { background: var(--dark); color: white; padding: 5rem 2rem; text-align: center; }
-        .waitlist h2 { font-size: 2.5rem; margin-bottom: 1rem; }
-        .waitlist p { color: #94a3b8; margin-bottom: 2rem; }
-        .waitlist-options { display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap; margin-bottom: 2rem; }
-        .waitlist-card { background: #1e293b; padding: 1.5rem; border-radius: 8px; border: 1px solid #334155; flex: 1; min-width: 250px; max-width: 350px; }
-        .waitlist-card h4 { color: var(--accent); margin-bottom: 0.5rem; }
-        .waitlist-form { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; max-width: 500px; margin: 2rem auto 0; }
-        .waitlist-form input { padding: 1rem; border-radius: 8px; border: 1px solid #334155; background: #1e293b; color: white; flex: 1; min-width: 250px; }
-        .footer { padding: 3rem 2rem; text-align: center; border-top: 1px solid #e2e8f0; color: var(--gray); }
+        .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+        .feature { padding: 2.5rem; border: 1px solid #e2e8f0; border-radius: 12px; transition: 0.3s; background: white; }
+        .feature:hover { border-color: var(--primary); }
+        .feature h3 { font-size: 1.25rem; font-weight: 700; margin-bottom: 0.75rem; color: var(--dark); }
+        .feature p { color: var(--gray); }
+
+        /* Waitlist Section */
+        .waitlist { background: var(--dark); color: white; padding: 6rem 2rem; text-align: center; }
+        .waitlist h2 { font-size: 2.5rem; font-weight: 800; margin-bottom: 1rem; }
+        .waitlist p { color: #94a3b8; margin-bottom: 3rem; }
+        .waitlist-options { display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap; margin-bottom: 3rem; }
+        .waitlist-card { background: #1e293b; padding: 2rem; border-radius: 12px; border: 1px solid #334155; flex: 1; min-width: 280px; max-width: 400px; text-align: left; }
+        .waitlist-card h4 { color: var(--accent); margin-bottom: 0.5rem; font-size: 1.1rem; }
+        .waitlist-form { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; max-width: 600px; margin: 0 auto; }
+        .waitlist-form input { padding: 1rem 1.5rem; border-radius: 8px; border: 1px solid #334155; background: #1e293b; color: white; flex: 2; min-width: 250px; font-size: 1rem; }
+        
+        .footer { padding: 4rem 2rem; text-align: center; border-top: 1px solid #e2e8f0; color: var(--gray); font-size: 0.9rem; }
     </style>
 </head>
 <body>
-    <div class="banner">
-        <img src="https://raw.githubusercontent.com/loop-capital/relaymobility-landing/main/Relay%20Banner.jpg" alt="RELAY Banner">
-    </div>
-    
+
     <nav>
         <div class="nav-container">
             <a href="#" class="logo">
                 <img src="https://raw.githubusercontent.com/loop-capital/relaymobility-landing/main/Relay%20Logo.jpg" alt="RELAY Logo">
-
                 RELAY Mobility
             </a>
         </div>
     </nav>
+
+    <div class="banner">
+        <img src="https://raw.githubusercontent.com/loop-capital/relaymobility-landing/main/Relay%20Banner.jpg" alt="RELAY Banner">
+    </div>
     
     <section class="hero">
         <h1>FSD Monetization, Simplified</h1>
-<p style="max-width: 650px; margin-left: auto; margin-right: auto; margin-bottom: 1rem;">Experience the future of mobility with Relay Mobility. Whether you’re an individual owner looking to offset your monthly payments or a commercial operator scaling a professional fleet, our platform turns your Full Self-Driving assets into active earners.</p>
-<p style="max-width: 650px; margin-left: auto; margin-right: auto; margin-bottom: 1rem;">Seamlessly onboard your vehicles, tap into our ride-sharing network, and watch your FSD technology pay for itself.</p>
-<a href="#waitlist" class="btn btn-primary">Join the Waitlist</a>
-
+        <p style="max-width: 750px; margin: 0 auto 2.5rem;">Experience the future of mobility with Relay Mobility. Whether you’re an individual owner looking to offset your monthly payments or a commercial operator scaling a professional fleet, our platform turns your Full Self-Driving assets into active earners.</p>
+        <p style="max-width: 750px; margin: 0 auto 3rem;">Seamlessly onboard your vehicles, tap into our ride-sharing network, and watch your FSD technology pay for itself.</p>
+        <a href="#waitlist" class="btn btn-primary">Join the Waitlist</a>
     </section>
     
     <section class="stats">
         <div>
-            <div class="stat-value">50%</div>
-            <div class="stat-label">Cost Savings</div>
+            <span class="stat-value">50%</span>
+            <span class="stat-label">Cost Savings</span>
         </div>
         <div>
-            <div class="stat-value">70%</div>
-            <div class="stat-label">Fleet Utilization</div>
+            <span class="stat-value">70%</span>
+            <span class="stat-label">Fleet Utilization</span>
         </div>
         <div>
-            <div class="stat-value">2026</div>
-            <div class="stat-label">Phoenix Launch</div>
+            <span class="stat-value">2026</span>
+            <span class="stat-label">Phoenix Launch</span>
         </div>
     </section>
     
@@ -108,7 +133,7 @@
                 </div>
                 <div class="feature">
                     <h3>Autonomous Ready</h3>
-                    <p>Built for Waymo, Zoox, and Tesla.</p>
+                    <p>Seamless software integration built for Waymo, Zoox, and Tesla assets.</p>
                 </div>
             </div>
         </div>
@@ -123,11 +148,11 @@
             <div class="features">
                 <div class="feature">
                     <h3>Tesla FSD Owners</h3>
-                    <p>Your car sits 22 hours a day. Put it to work—earning while you sleep.</p>
+                    <p>Your car sits 22 hours a day. Put it to work—earning while you sleep or work.</p>
                 </div>
                 <div class="feature">
                     <h3>Any AV Compatible</h3>
-                    <p>Waymo, Zoox, Tesla Robotaxi—all welcome. Full insurance coverage when on the network.</p>
+                    <p>Tesla, Waymo, or Zoox—all welcome. Full insurance coverage included while on the network.</p>
                 </div>
                 <div class="feature">
                     <h3>Keep Control</h3>
@@ -140,4 +165,25 @@
     <section class="waitlist" id="waitlist">
         <h2>Join the Network</h2>
         <p>Whether you manage a fleet or own a single FSD vehicle.</p>
-        <div class="waitlist-options
+        <div class="waitlist-options">
+            <div class="waitlist-card">
+                <h4>Fleet Partners</h4>
+                <p>Scale your commercial operations with our autonomous dispatch layer.</p>
+            </div>
+            <div class="waitlist-card">
+                <h4>Individual Owners</h4>
+                <p>Be the first to turn your personal FSD vehicle into a revenue generator.</p>
+            </div>
+        </div>
+        <form class="waitlist-form">
+            <input type="email" placeholder="Enter your email address" required>
+            <button type="submit" class="btn btn-primary">Reserve Your Spot</button>
+        </form>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2026 RELAY Mobility. All rights reserved. Launching in Phoenix, AZ.</p>
+    </footer>
+
+</body>
+</html>
