@@ -15,10 +15,10 @@
             color: var(--dark); 
         }
 
-        /* 1. The Banner Container - Increased height for the larger logo */
+        /* 1. The Banner Container - Adjusted for the 300px logo */
         .main-banner { 
             width: 100%; 
-            height: 500px; 
+            height: 550px; 
             background: linear-gradient(rgba(15, 23, 42, 0.4), rgba(15, 23, 42, 0.4)), 
                         url('https://raw.githubusercontent.com/loop-capital/relaymobility-landing/main/Relay%20Banner.jpg');
             background-size: cover;
@@ -28,18 +28,17 @@
             justify-content: center;
         }
 
-        /* 2. The Logo - Size doubled to 240px */
+        /* 2. The Logo - Increased to 300px */
         .centered-logo { 
-            height: 240px; 
-            width: 240px; 
-            border-radius: 24px; /* Slightly larger radius to match scale */
+            height: 300px; 
+            width: 300px; 
+            border-radius: 32px; /* Smoother corner for the larger size */
             object-fit: cover;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
-            border: 4px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 20px 45px rgba(0,0,0,0.45);
+            border: 5px solid rgba(255, 255, 255, 0.15);
             display: block;
         }
         
-        /* 3. Hero Section */
         .hero { 
             padding: 6rem 2rem; 
             background: linear-gradient(135deg, var(--dark) 0%, #1e293b 100%); 
@@ -69,73 +68,4 @@
         .waitlist-form { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; max-width: 600px; margin: 2rem auto 0; }
         .waitlist-form input { padding: 1rem 1.5rem; border-radius: 8px; border: 1px solid #334155; background: #1e293b; color: white; flex: 2; min-width: 250px; }
         
-        .footer { padding: 4rem 2rem; text-align: center; border-top: 1px solid #e2e8f0; color: var(--gray); font-size: 0.9rem; }
-    </style>
-</head>
-<body>
-
-    <header class="main-banner">
-        <img src="https://raw.githubusercontent.com/loop-capital/relaymobility-landing/main/Relay%20Logo.jpg" 
-             alt="RELAY Logo" 
-             class="centered-logo">
-    </header>
-    
-    <section class="hero">
-        <h1>FSD Monetization, Simplified</h1>
-        <p style="max-width: 750px; margin: 0 auto 2.5rem;">Experience the future of mobility with Relay Mobility. Whether you’re an individual owner looking to offset your monthly payments or a commercial operator scaling a professional fleet, our platform turns your Full Self-Driving assets into active earners.</p>
-        <p style="max-width: 750px; margin: 0 auto 3rem;">Seamlessly onboard your vehicles, tap into our ride-sharing network, and watch your FSD technology pay for itself.</p>
-        <a href="#waitlist" class="btn btn-primary">Join the Waitlist</a>
-    </section>
-    
-    <section class="stats">
-        <div>
-            <span class="stat-value">50%</span>
-            <span class="stat-label">Cost Savings</span>
-        </div>
-        <div>
-            <span class="stat-value">70%</span>
-            <span class="stat-label">Fleet Utilization</span>
-        </div>
-        <div>
-            <span class="stat-value">2026</span>
-            <span class="stat-label">Phoenix Launch</span>
-        </div>
-    </section>
-    
-    <section class="section">
-        <div class="section-container">
-            <div class="section-header">
-                <h2>For Enterprise Fleets</h2>
-                <p>Rental car companies: turn idle inventory into revenue.</p>
-            </div>
-            <div class="features">
-                <div class="feature">
-                    <h3>Asset-Light Model</h3>
-                    <p>We activate your existing rental fleet—turning depreciation into revenue.</p>
-                </div>
-                <div class="feature">
-                    <h3>Half the Cost</h3>
-                    <p>No drivers to pay means rides cost 50% less. Same safety, better economics.</p>
-                </div>
-                <div class="feature">
-                    <h3>Autonomous Ready</h3>
-                    <p>Software integration built for Waymo, Zoox, and Tesla assets.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <section class="waitlist" id="waitlist">
-        <h2>Join the Network</h2>
-        <form class="waitlist-form">
-            <input type="email" placeholder="Enter your email address" required>
-            <button type="submit" class="btn btn-primary">Reserve Your Spot</button>
-        </form>
-    </section>
-
-    <footer class="footer">
-        <p>&copy; 2026 RELAY Mobility. All rights reserved. Launching in Phoenix, AZ.</p>
-    </footer>
-
-</body>
-</html>
+        .footer { padding: 4rem 2rem; text-align: center; border-top: 1px solid #
