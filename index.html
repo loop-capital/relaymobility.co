@@ -4,88 +4,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RELAY Mobility | The Autonomous Fleet Network</title>
-    <meta name="description" content="Half the cost of Uber. Zero drivers. Autonomous ride-sharing via fleet partnerships and FSD vehicle owners. Launching Phoenix 2026.">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        :root { --primary: #2563eb; --secondary: #0ea5e9; --accent: #8b5cf6; --dark: #0f172a; --gray: #64748b; --light: #f8fafc; }
+        :root { --primary: #2563eb; --secondary: #0ea5e9; --dark: #0f172a; --gray: #64748b; --light: #f8fafc; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body { 
             font-family: 'Inter', sans-serif; 
             line-height: 1.6; 
             color: var(--dark); 
-            /* Removed padding-top so banner hits the very top */
+        }
+
+        /* 1. The Banner Container */
+        .main-banner { 
+            width: 100%; 
+            height: 400px; 
+            /* Using background-image so the logo inside stays opaque */
+            background: linear-gradient(rgba(15, 23, 42, 0.5), rgba(15, 23, 42, 0.5)), 
+                        url('https://raw.githubusercontent.com/loop-capital/relaymobility-landing/main/Relay%20Banner.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;    /* Vertical center */
+            justify-content: center;  /* Horizontal center */
+        }
+
+        /* 2. The Logo - Fixed size and fully opaque */
+        .centered-logo { 
+            height: 120px; /* Adjust this to change logo size */
+            width: 120px; 
+            border-radius: 16px; 
+            object-fit: cover;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            border: 3px solid rgba(255, 255, 255, 0.1);
         }
         
-        /* Transparent Navigation Overlay */
-        nav { 
-            position: absolute; /* Changed from fixed to absolute to sit on top of banner */
-            top: 0; 
-            width: 100%; 
-            height: 100px;
-            z-index: 1000; 
-            display: flex;
-            align-items: center;
-            justify-content: center; /* Centers the nav-container */
+        /* 3. Hero Section */
+        .hero { 
+            padding: 6rem 2rem; 
+            background: linear-gradient(135deg, var(--dark) 0%, #1e293b 100%); 
+            color: white; 
+            text-align: center; 
         }
-
-        .nav-container { 
-            width: 100%; 
-            max-width: 1200px; 
-            display: flex; 
-            justify-content: center; /* Centers the logo horizontally */
-            align-items: center; 
-        }
-
-        /* Centered Logo Styling */
-        .logo { 
-            display: flex; 
-            flex-direction: column; /* Stacks image and text vertically */
-            align-items: center; 
-            gap: 1rem; 
-            font-size: 2rem; 
-            font-weight: 800; 
-            color: white; /* Changed to white to pop against dark banner */
-            text-decoration: none; 
-            text-shadow: 0 2px 10px rgba(0,0,0,0.5); /* Adds readability over image */
-        }
-
-        .logo img { 
-            height: 80px; /* Made logo slightly larger for center stage */
-            width: 80px; 
-            border-radius: 12px; 
-            object-fit: cover; 
-            border: 2px solid rgba(255,255,255,0.2);
-        }
-
-        /* Full-Width Top Banner */
-        .banner { 
-            width: 100%; 
-            height: 450px; /* Increased height to make room for centered logo */
-            background: var(--dark); 
-            position: relative;
-            display: flex;
-            align-items: center; /* Centers content vertically */
-            justify-content: center; /* Centers content horizontally */
-            overflow: hidden; 
-        }
-
-        .banner img { 
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%; 
-            height: 100%; 
-            object-fit: cover; 
-            opacity: 0.6; /* Darkened slightly so white logo is clear */
-        }
-        
-        /* Hero Section */
-        .hero { padding: 6rem 2rem; background: linear-gradient(135deg, var(--dark) 0%, #1e293b 100%); color: white; text-align: center; }
         .hero h1 { font-size: 3.5rem; font-weight: 800; margin-bottom: 1.5rem; line-height: 1.1; }
         .hero p { color: #94a3b8; font-size: 1.125rem; }
 
-        .btn { padding: 1rem 2.5rem; border-radius: 8px; font-weight: 600; text-decoration: none; display: inline-block; transition: all 0.2s; border: none; cursor: pointer; }
+        .btn { padding: 1rem 2.5rem; border-radius: 8px; font-weight: 600; text-decoration: none; display: inline-block; transition: 0.2s; border: none; }
         .btn-primary { background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; }
         .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(37,99,235,0.3); }
 
@@ -110,18 +74,11 @@
 </head>
 <body>
 
-    <div class="banner">
-        <img src="https://raw.githubusercontent.com/loop-capital/relaymobility-landing/main/Relay%20Banner.jpg" alt="RELAY Banner">
-        
-        <nav>
-            <div class="nav-container">
-                <a href="#" class="logo">
-                    <img src="https://raw.githubusercontent.com/loop-capital/relaymobility-landing/main/Relay%20Logo.jpg" alt="RELAY Logo">
-                    RELAY Mobility
-                </a>
-            </div>
-        </nav>
-    </div>
+    <header class="main-banner">
+        <img src="https://raw.githubusercontent.com/loop-capital/relaymobility-landing/main/Relay%20Logo.jpg" 
+             alt="RELAY Logo" 
+             class="centered-logo">
+    </header>
     
     <section class="hero">
         <h1>FSD Monetization, Simplified</h1>
